@@ -1,7 +1,7 @@
 # Loxberry Plugin: Xiaomi MiFlora Flower Sensor
 This Plugin queries the Xiaomi MiFlora Flower Sensors via bluetooth low energy (btle) and sends the data via UDP to the Loxone Miniserver.
 
-<img src="https://raw.githubusercontent.com/michaelmiklis/loxberry-plugin-miflora/assets/plugin.png" height="1000" alt="Xiaomi MiFlora Plugin"/>
+<img src="https://raw.githubusercontent.com/michaelmiklis/loxberry-plugin-miflora/assets/plugin.png" height="600" alt="Xiaomi MiFlora Plugin"/>
 
 The Xiaomi MiFlora Plugin supports multiple flower sensors. During each execution a bluetooth scan for Xiaomi MiFlora devices is performed and each found device will be queried. Each received value will be send as an individual UDP packet. The UDP packets will have the following format:
 
