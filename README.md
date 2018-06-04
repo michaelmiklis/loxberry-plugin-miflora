@@ -14,11 +14,11 @@ C47C8D66275B.Light=136
 ## Beispiel
 The UDP packages will be sent as follows:
 
-<img src="https://raw.githubusercontent.com/michaelmiklis/loxberry-plugin-miflora/assets/udp-monitor.png" alt="UDP-Monitor" height="360"/>
+<img src="https://raw.githubusercontent.com/michaelmiklis/loxberry-plugin-miflora/assets/udp-monitor.png" alt="UDP-Monitor" height="300"/>
 
 With the following command recognition the values can be assigend to a "UDP-Command" / virtual input:
 
-<img src="https://raw.githubusercontent.com/michaelmiklis/loxberry-plugin-miflora/assets/command.png" alt="UDP-Befehl" width="640" />
+<img src="https://raw.githubusercontent.com/michaelmiklis/loxberry-plugin-miflora/assets/command.png" alt="UDP-Befehl" width="350" />
 
 ## Sensor data
 
