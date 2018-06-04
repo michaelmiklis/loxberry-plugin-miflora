@@ -1,0 +1,117 @@
+<h1><TMPL_VAR NAME=T::BASIC.HEADING_BASICSETTINGS></h1>
+<TMPL_VAR frmStart>
+<table class="formtable" border="0" width="100%">
+	<tr>
+	<td width="25%">
+		<label id="lblPluginEnabled"><TMPL_VAR lblPluginEnabled></label>
+	</td>
+	<td width="50%">
+		  <TMPL_VAR chkPluginEnabled>
+ 
+		<!-- per Javascript dem Element das "data-role"-Attribut hinzufügen -->
+		<script>
+			// Add some attributes PERL::CGI doesn't provide
+			$('select[name=chkPluginEnabled]').attr('data-role','flipswitch');
+		</script>
+	</td>
+	<td width="25%">
+		&nbsp;
+	</td>
+</tr>
+<tr>
+	<td width="25%">
+		<label id="lblMiniServer"><TMPL_VAR lblMiniServer></label>
+	</td>
+	<td width="50%">
+		<TMPL_VAR selMiniServer>
+	</td>
+	<td width="25%">
+		&nbsp;
+	</td>
+</tr>
+<tr>
+	<td width="25%">
+		<label id="lblMsUDPPort"><TMPL_VAR lblMsUDPPort></label>
+	</td>
+	<td width="50%">
+		 <TMPL_VAR txtMsUDPPort>
+	</td>
+	<td width="25%">
+		&nbsp;
+	</td>
+</tr>
+<tr>
+	<td width="25%">
+		<label id="lblLocaltime"><TMPL_VAR lblLocaltime></label>
+	</td>
+	<td width="50%">
+		 <TMPL_VAR chkLocaltime>
+
+		 <!-- per Javascript dem Element das "data-role"-Attribut hinzufügen -->
+		<script>
+			// Add some attributes PERL::CGI doesn't provide
+			$('select[name=chkLocaltime]').attr('data-role','flipswitch');
+		</script>
+	</td>
+	<td width="25%">
+		&nbsp;
+	</td>
+</tr>
+<tr>
+	<td width="25%">
+		<label id="lblPollFrequency"><TMPL_VAR lblPollFrequency></label>
+	</td>
+	<td width="50%">
+		 <TMPL_VAR selPollFrequency>
+	</td>
+	<td width="25%">
+		&nbsp;
+	</td>
+</tr>
+<tr>
+	<td width="25%">
+		&nbsp;
+	</td>
+	<td width="50%">
+		<table border="0" width="100%">
+			<tr>
+				<td width="49%"><TMPL_VAR btnSave></td>
+				<td>&nbsp;</td>
+				<td width="49%"><TMPL_VAR btnPoll></td>
+			</tr>
+		</table>
+	</td>
+	<td width="25%">
+		&nbsp;
+	</td>
+</tr>
+<tr height="40px">
+	<td>&nbsp</td>
+</tr>
+<tr>
+	<td width="25%">
+		<label id="lblLastData"><TMPL_VAR lblLastData></label>
+	</td>
+	<td width="50%">
+		 <TMPL_VAR txtLastData>
+	</td>
+	<td width="25%">
+		&nbsp;
+	</td>
+</tr>
+<tr>
+	<td width="25%">
+		&nbsp;
+	</td>
+	<td width="50%">
+		 <TMPL_VAR btnRefresh>
+	</td>
+	<td width="25%">
+		&nbsp;
+	</td>
+</tr>		
+</table>
+
+<TMPL_VAR frmEnd>
+
+<i><TMPL_VAR NAME=T::FOOTER.GREETING></i>
