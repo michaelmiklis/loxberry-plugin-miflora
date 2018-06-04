@@ -8,10 +8,11 @@ The Xiaomi MiFlora Plugin supports multiple flower sensors. During each executio
 [Device-MAC].[Sensor-Name]=[Value]
 
 Sample:
+
 C47C8D66275B.Moisture=4
 C47C8D66275B.Light=136
 
-## Beispiel
+## Sample
 The UDP packages will be sent as follows:
 
 <img src="https://raw.githubusercontent.com/michaelmiklis/loxberry-plugin-miflora/assets/udp-monitor.png" alt="UDP-Monitor" height="300"/>
