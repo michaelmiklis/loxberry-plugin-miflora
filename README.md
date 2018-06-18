@@ -42,7 +42,7 @@ If you have any issues you can run the plugin manually from the Loxberry command
 
 This plugin will be improved over time and feedback is appreciated. Therefore I created a thread in the LoxForum:
 
-!link will be added!
+https://www.loxforum.com/forum/projektforen/loxberry/plugins/156917-plugin-xiaomi-miflora-flower-monitor
 
 ## Change-Log
 - 2018-06-18 Release 1.0.1 - Fixed typo in postroot.sh install script
