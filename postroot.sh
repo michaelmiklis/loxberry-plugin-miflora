@@ -67,7 +67,7 @@ pip3 install setuptools
 pip3 install btlewrap
 
 # set permissions for bluetooth bluepy-library
-setcap 'cap_net_raw,cap_net_admin+eip'/usr/local/lib/python3.5/dist-packages/bluepy/bluepy-helper
+setcap 'cap_net_raw,cap_net_admin+eip' /usr/local/lib/python3.5/dist-packages/bluepy/bluepy-helper
 
 
 # Exit with Status 0

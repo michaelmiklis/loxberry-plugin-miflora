@@ -45,6 +45,7 @@ This plugin will be improved over time and feedback is appreciated. Therefore I 
 !link will be added!
 
 ## Change-Log
+- 2018-06-18 Release 1.0.1 - Fixed typo in postroot.sh install script
 - 2018-06-04 Release 1.0.0 - Initial release of version 1.0.0
 
 
