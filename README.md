@@ -38,12 +38,14 @@ With the following command recognition the values can be assigend to a "UDP-Comm
 
 ## Troubleshooting and feedback
 If you have any issues you can run the plugin manually from the Loxberry command line (SSH) using the following command:
+
 `/usr/bin/python3 /opt/loxberry/bin/plugins/xiaomi-miflora/miflora.py`
 
 If the above command does NOT find you Xiaomi Flower Sensors proceed with the following steps to find the cause:
 
 ### Step 1: Are the sensors are discoverable by the OS?
 Test if the bluetooth stack from Raspbian can find the devices:
+
 `hcitool lescan (must be executed as root)`
 
 If your device is not found - it seems to be a low-level problem either with the bluetooth device, your raspbian drivers, bluetooth chip, e.g.
@@ -53,6 +55,7 @@ Please understand that I cannot provide support for these kind of problems as th
 Start the btle-wrapper (called bluepy-helper). This module makes the bluetooth stack available in python3.
 
 `./usr/local/lib/python3.7/dist-packages/bluepy/bluepy-helper`
+
 Enter `scan` and check the output if your devices are listed here (rsp=$scanaddr=b{YOUR DEVICE ID}type)
 
 If your device is not found or any module-errors are shown it seems to be a problem with the bluepy python3 moduel. Check the version and try to manually reinstall the module:
@@ -67,8 +70,8 @@ To start a discovery of the BLE devices using blescan.py execute the following c
 
 `python3 /usr/local/bin/blescan`
 
-If your device is not found - it seems to be a problem with the bluepy python3 module. Check the developers page
-https://github.com/IanHarvey/bluepy for further assistance.
+If your device is not found - it seems to be a problem with the bluepy python3 module. 
+Check the developers page https://github.com/IanHarvey/bluepy for further assistance.
 
 
 ### Step 4: All of the above worked correctly, but the plugin still fails
