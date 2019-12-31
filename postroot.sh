@@ -62,12 +62,12 @@ echo "<INFO> Plugin CONFIG folder is: $PCONFIG"
 
 
 # install additional python3 libaries
-pip3 install bluepy
 pip3 install setuptools
+pip3 install bluepy
 pip3 install btlewrap
 
 # set permissions for bluetooth bluepy-library
-setcap 'cap_net_raw,cap_net_admin+eip' /usr/local/lib/python3.5/dist-packages/bluepy/bluepy-helper
+setcap 'cap_net_raw,cap_net_admin+eip' /usr/local/lib/python3.7/dist-packages/bluepy/bluepy-helper
 
 
 # Exit with Status 0
