@@ -85,6 +85,7 @@ This plugin will be improved over time and feedback is appreciated. Therefore I 
 https://www.loxforum.com/forum/projektforen/loxberry/plugins/156917-plugin-xiaomi-miflora-flower-monitor
 
 ## Change-Log
+- 2020-01-05 Release 2.0.2 - Fixed issue with btlewrap __init__ 
 - 2019-12-31 Release 2.0.1 - Support for Loxberry 2.0.0.4 and above
 - 2018-06-18 Release 1.0.1 - Fixed typo in postroot.sh install script
 - 2018-06-04 Release 1.0.0 - Initial release of version 1.0.0
