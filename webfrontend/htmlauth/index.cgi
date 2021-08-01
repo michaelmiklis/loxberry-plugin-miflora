@@ -117,7 +117,7 @@ $template->param( frmEnd => $frmEnd );
 # ---------------------------------------------------
 # Control for "chkPluginEnabled" Flipswitch
 # ---------------------------------------------------
-@values = ('1', '0' );
+@values = ('0', '1');
 %labels = (
       '1' => 'On',
       '0' => 'Off',
@@ -126,7 +126,7 @@ my $chkPluginEnabled = $cgi->popup_menu(
       -name    => 'chkPluginEnabled',
       -values  => \@values,
       -labels  => \%labels,
-      -default => '1',
+      -default => $pcfg->param('MIFLORA.ENABLED')
   );
 $template->param( chkPluginEnabled => $chkPluginEnabled );
 
@@ -171,7 +171,7 @@ $template->param( txtMsUDPPort => $txtMsUDPPort );
 # ---------------------------------------------------
 # Control for "chkLocaltime" Flipswitch
 # ---------------------------------------------------
-@values = ('1', '0' );
+@values = ('0', '1' );
 %labels = (
       '1' => 'On',
       '0' => 'Off',
@@ -180,7 +180,7 @@ my $chkLocaltime = $cgi->popup_menu(
       -name    => 'chkLocaltime',
       -values  => \@values,
       -labels  => \%labels,
-      -default => '1',
+      -default => $pcfg->param('MIFLORA.LOCALTIME')
   );
 $template->param( chkLocaltime => $chkLocaltime );
 
