@@ -61,14 +61,13 @@ echo "<INFO> Plugin Log folder (on RAMDISK!) is: $PLOG"
 echo "<INFO> Plugin CONFIG folder is: $PCONFIG"
 
 echo "<INFO> Creating temporary folders for upgrading"
-mkdir /tmp/uploads/$PTEMPDIR\_upgrade
-mkdir /tmp/uploads/$PTEMPDIR\_upgrade/config
-mkdir /tmp/uploads/$PTEMPDIR\_upgrade/log
+mkdir -p /tmp/uploads/$PTEMPDIR/_upgrade/config
+mkdir -p /tmp/uploads/$PTEMPDIR/_upgrade/log
 
 echo "<INFO> Backing up existing config files"
-cp -v -r $PTEMPPATH/config/plugins/$ARGV3/ /tmp/uploads/$PTEMPDIR\_upgrade/config
+cp -v -r $PCONFIG/* /tmp/uploads/$PTEMPDIR/_upgrade/config/
 
 echo "<INFO> Backing up existing log files"
-cp -v -r $PTEMPPATH/log/plugins/$ARGV3/ /tmp/uploads/$PTEMPDIR\_upgrade/log
+cp -v -r $PLOG/* /tmp/uploads/$PTEMPDIR/_upgrade/log/
 
 exit 0

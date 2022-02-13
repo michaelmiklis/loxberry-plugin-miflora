@@ -214,7 +214,7 @@ $template->param( txtMQTTUsername => $txtMQTTUsername );
 # ---------------------------------------------------
 # Control for "txtMQTTPassword" Textfield
 # ---------------------------------------------------
-my $txtMQTTPassword = $cgi->textfield(
+my $txtMQTTPassword = $cgi->password_field(
       -name    => 'txtMQTTPassword',
       -default => $pcfg->param('MIFLORA.MQTTPASSWORD'),
   );
