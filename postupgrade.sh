@@ -84,6 +84,6 @@ rm -r /tmp/uploads/$PTEMPDIR\_upgrade
 #/bin/sed -i "s#PLUGINCONFIGFOLDER#$PCONFIG#" $LBHOMEDIR/bin/plugins/$PDIR/miflora.py
 #/bin/sed -i "s#SYSTEMCONFIGFOLDER#$LBSCONFIG#" $LBHOMEDIR/bin/plugins/$PDIR/miflora.py
 
-/bin/sed -i "s#PLUGINBINFOLDER#$LBHOMEDIR/bin/plugins/$PDIR#" $LBHOMEDIR/system/cron/cron.hourly/$PSHNAME
+/bin/sed -i "s#PLUGINFOLDER#$PDIR#" $LBHOMEDIR/system/cron/cron.hourly/$PSHNAME
 
 exit 0

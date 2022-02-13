@@ -58,7 +58,6 @@ def main(args):
 
     mqttclient_id = "loxberry-miflora-{0}".format(random.randint(0, 1000))
 
-
     """
     transistion from general.cfg to general.json
     """
@@ -376,7 +375,7 @@ def writelastdata(filename, data):
 
 def publish(client, topic, msg):
 
-    result = client.publish(topic, msg)
+    result = client.publish(topic.lower(), msg)
 
     if result[0] == 0:
         logging.info("Send {0} to topic {1}".format(msg, topic))
@@ -435,6 +434,7 @@ def sendudp(data, destip, destport):
         sys.exit(-1)
 
 # _______________________________________________________________________________________
+
 
 # parse args and call main function
 print('Number of arguments:', len(sys.argv), 'arguments.')

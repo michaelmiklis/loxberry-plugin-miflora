@@ -8,7 +8,7 @@
 # cron script will not be uninstalled cleanly.
 
 # Will be executed as user "loxberry".
-if [ -e PLUGINBINFOLDER/miflora.py ]
+if [ -e $LBPBIN/PLUGINFOLDER/miflora.py ]
 then
-  /usr/bin/python3 PLUGINBINFOLDER/miflora.py --daemon --logfile=$LBPLOG/PLUGINBINFOLDER/xiaomi-miflora.log --configfile=$LBPCONFIG/PLUGINBINFOLDER/miflora.cfg
+    /usr/bin/python3 $LBPBIN/PLUGINFOLDER/miflora.py --daemon --logfile $LBPLOG/PLUGINFOLDER/xiaomi-miflora.log --configfile $LBPCONFIG/PLUGINFOLDER/miflora.cfg
 fi

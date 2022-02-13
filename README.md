@@ -4,7 +4,11 @@ This Plugin queries the Xiaomi MiFlora Flower Sensors via bluetooth low energy (
 
 <img src="https://raw.githubusercontent.com/michaelmiklis/loxberry-plugin-miflora/assets/plugin.png" height="600" alt="Xiaomi MiFlora Plugin"/>
 
-The Xiaomi MiFlora Plugin supports multiple flower sensors. During each execution a bluetooth scan for Xiaomi MiFlora devices is performed and each found device will be queried. Each received value will be send as an individual UDP packet. The UDP packets will have the following format:
+The Xiaomi MiFlora Plugin supports multiple flower sensors. During each execution a bluetooth scan for Xiaomi MiFlora devices is performed and each found device will be queried.
+
+## UDP Mode (default)
+
+Each received value will be send as an individual UDP packet. The UDP packets will have the following format:
 
 [Device-MAC].[Sensor-Name]=[Value]
 
@@ -13,8 +17,6 @@ Sample:
 C47C8D66275B.Moisture=4
 C47C8D66275B.Light=136
 
-## Sample
-
 The UDP packages will be sent as follows:
 
 <img src="https://raw.githubusercontent.com/michaelmiklis/loxberry-plugin-miflora/assets/udp-monitor.png" alt="UDP-Monitor" height="300"/>
@@ -22,6 +24,11 @@ The UDP packages will be sent as follows:
 With the following command recognition the values can be assigend to a "UDP-Command" / virtual input:
 
 <img src="https://raw.githubusercontent.com/michaelmiklis/loxberry-plugin-miflora/assets/command.png" alt="UDP-Befehl" width="350" />
+
+## MQTT Mode (Experimental Support)
+
+Starting in version 2.0.4 the Xiaomi MiFlora Flower Sensor Plugin also supports MQTT for sending data to the Loxone Miniserver. This requires the MQTT Gateway Plugin to be installed and successfully configured.
+Further documentation and improvements on MQTT will be added in future releases.
 
 ## Sensor data
 
@@ -78,7 +85,19 @@ To start a discovery of the BLE devices using blescan.py execute the following c
 If your device is not found - it seems to be a problem with the bluepy python3 module.
 Check the developers page <https://github.com/IanHarvey/bluepy> for further assistance.
 
-### Step 4: All of the above worked correctly, but the plugin still fails
+### Step 4: Check Logfile in Loxberry WebUI
+
+Navigate to "Log Manager" -> "More Logfiles" -> "Xiaomi Flower Monitor (Plugin Log)" and check the logfile for error messages.
+
+### Step 5: Execute plugin locally using SSH connection
+
+Open an SSH connection to your Loxberry and execute the following command:
+
+`python3 /usr/bin/python3 /opt/loxberry/bin/plugins/xiaomi-miflora/miflora.py --logfile=/opt/loxberry/log/plugins/xiaomi-miflora/xiaomi-miflora.log --configfile=/opt/loxberry/config/plugins/xiaomi-miflora/miflora.cfg`
+
+If python specific errors occur, they will be displayed in the console.
+
+### Step 6: All of the above worked correctly, but the plugin still fails
 
 Post an issue on my GitHub Page or in the Loxberry Forum.
 <https://www.loxforum.com/forum/projektforen/loxberry/plugins/156917-plugin-xiaomi-miflora-flower-monitor>
