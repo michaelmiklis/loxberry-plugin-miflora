@@ -63,6 +63,15 @@ echo "<INFO> Plugin CONFIG folder is: $PCONFIG"
 echo "<INFO> Copy back existing config files"
 cp -v -r /tmp/uploads/$PTEMPDIR\_upgrade/config/$PDIR/* $PTEMPPATH/config/plugins/$PDIR/ 
 
+echo "<INFO> Adding new config parameters"
+grep -q -F "UDPENABLED=" $ARGV5/config/plugins/$ARGV3/miflora.cfg || echo "UDPENABLED=1" >> $ARGV5/config/plugins/$ARGV3/miflora.cfg 
+grep -q -F "MQTTENABLED=" $ARGV5/config/plugins/$ARGV3/miflora.cfg || echo "MQTTENABLED=0" >> $ARGV5/config/plugins/$ARGV3/miflora.cfg
+grep -q -F "MQTTBROKER=" $ARGV5/config/plugins/$ARGV3/miflora.cfg || echo "MQTTBROKER=localhost" >> $ARGV5/config/plugins/$ARGV3/miflora.cfg
+grep -q -F "MQTTPORT=" $ARGV5/config/plugins/$ARGV3/miflora.cfg || echo "MQTTPORT=1883" >> $ARGV5/config/plugins/$ARGV3/miflora.cfg
+grep -q -F "MQTTTOPIC=" $ARGV5/config/plugins/$ARGV3/miflora.cfg || echo "MQTTTOPIC=miflora" >> $ARGV5/config/plugins/$ARGV3/miflora.cfg
+grep -q -F "MQTTUSERNAME=" $ARGV5/config/plugins/$ARGV3/miflora.cfg || echo "MQTTUSERNAME=loxberry" >> $ARGV5/config/plugins/$ARGV3/miflora.cfg
+grep -q -F "MQTTPASSWORD=" $ARGV5/config/plugins/$ARGV3/miflora.cfg || echo "MQTTPASSWORD=secretPassword" >> $ARGV5/config/plugins/$ARGV3/miflora.cfg
+
 echo "<INFO> Copy back existing log files"
 cp -v -r /tmp/uploads/$PTEMPDIR\_upgrade/log/$PDIR/* $PTEMPPATH/log/plugins/$PDIR/ 
 
@@ -71,9 +80,9 @@ rm -r /tmp/uploads/$PTEMPDIR\_upgrade
 
 
 # Replace real subfolder and scriptname
-/bin/sed -i "s#PLUGINDATAFOLDER#$PDATA#" $LBHOMEDIR/bin/plugins/$PDIR/miflora.py
-/bin/sed -i "s#PLUGINCONFIGFOLDER#$PCONFIG#" $LBHOMEDIR/bin/plugins/$PDIR/miflora.py
-/bin/sed -i "s#SYSTEMCONFIGFOLDER#$LBSCONFIG#" $LBHOMEDIR/bin/plugins/$PDIR/miflora.py
+#/bin/sed -i "s#PLUGINDATAFOLDER#$PDATA#" $LBHOMEDIR/bin/plugins/$PDIR/miflora.py
+#/bin/sed -i "s#PLUGINCONFIGFOLDER#$PCONFIG#" $LBHOMEDIR/bin/plugins/$PDIR/miflora.py
+#/bin/sed -i "s#SYSTEMCONFIGFOLDER#$LBSCONFIG#" $LBHOMEDIR/bin/plugins/$PDIR/miflora.py
 
 /bin/sed -i "s#PLUGINBINFOLDER#$LBHOMEDIR/bin/plugins/$PDIR#" $LBHOMEDIR/system/cron/cron.hourly/$PSHNAME
 

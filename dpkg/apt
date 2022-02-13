@@ -6,3 +6,4 @@ python3-requests
 libstring-escape-perl
 python3-pip
 libglib2.0-dev
+python3-paho-mqtt

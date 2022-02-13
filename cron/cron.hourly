@@ -10,5 +10,5 @@
 # Will be executed as user "loxberry".
 if [ -e PLUGINBINFOLDER/miflora.py ]
 then
-  /usr/bin/python3 PLUGINBINFOLDER/miflora.py daemon
+  /usr/bin/python3 PLUGINBINFOLDER/miflora.py --daemon --logfile=$LBPLOG/PLUGINBINFOLDER/xiaomi-miflora.log --configfile=$LBPCONFIG/PLUGINBINFOLDER/miflora.cfg
 fi

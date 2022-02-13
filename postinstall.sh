@@ -60,9 +60,9 @@ echo "<INFO> Plugin Log folder (on RAMDISK!) is: $PLOG"
 echo "<INFO> Plugin CONFIG folder is: $PCONFIG"
 
 # Replace real subfolder and scriptname
-/bin/sed -i "s#PLUGINDATAFOLDER#$PDATA#" $LBHOMEDIR/bin/plugins/$PDIR/miflora.py
-/bin/sed -i "s#PLUGINCONFIGFOLDER#$PCONFIG#" $LBHOMEDIR/bin/plugins/$PDIR/miflora.py
-/bin/sed -i "s#SYSTEMCONFIGFOLDER#$LBSCONFIG#" $LBHOMEDIR/bin/plugins/$PDIR/miflora.py
+#/bin/sed -i "s#PLUGINDATAFOLDER#$PDATA#" $LBHOMEDIR/bin/plugins/$PDIR/miflora.py
+#/bin/sed -i "s#PLUGINCONFIGFOLDER#$PCONFIG#" $LBHOMEDIR/bin/plugins/$PDIR/miflora.py
+#/bin/sed -i "s#SYSTEMCONFIGFOLDER#$LBSCONFIG#" $LBHOMEDIR/bin/plugins/$PDIR/miflora.py
 
 /bin/sed -i "s#PLUGINBINFOLDER#$LBHOMEDIR/bin/plugins/$PDIR#" $LBHOMEDIR/system/cron/cron.hourly/$PSHNAME
 

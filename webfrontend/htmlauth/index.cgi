@@ -52,7 +52,13 @@ if ($R::btnSave)
 	$pcfg->param('MIFLORA.UDPPORT', $R::txtMsUDPPort);
 	$pcfg->param('MIFLORA.POLLFREQUENCY', $R::selPollFrequency);
 	$pcfg->param('MIFLORA.LOCALTIME', $R::chkLocaltime);
-
+	$pcfg->param('MIFLORA.UDPENABLED', $R::chkUDPEnabled);
+  $pcfg->param('MIFLORA.MQTTENABLED', $R::chkMQTTEnabled);
+  $pcfg->param('MIFLORA.MQTTBROKER', $R::txtMQTTBroker);
+  $pcfg->param('MIFLORA.MQTTPORT', $R::txtMQTTPort);
+  $pcfg->param('MIFLORA.MQTTTOPIC', $R::txtMQTTTopic);
+  $pcfg->param('MIFLORA.MQTTUSERNAME', $R::txtMQTTUsername);
+  $pcfg->param('MIFLORA.MQTTPASSWORD', $R::txtMQTTPassword);
 
 	$pcfg->save();
 }
@@ -65,7 +71,7 @@ if ($R::btnPoll)
 {
 	print "DEBUG: manual poll $lbpbindir/miflora.py";
 
-	system("(/usr/bin/python3 -u $lbpbindir/miflora.py) &");
+	system("(/usr/bin/python3 -u $lbpbindir/miflora.py --configfile $lbpconfigdir/miflora.cfg --logfile $lbplogdir/xiaomi-miflora.log) &");
 
 	if (-e "$lbpdatadir/lastdata.dat")
 	{
@@ -169,6 +175,53 @@ $template->param( txtMsUDPPort => $txtMsUDPPort );
 
 
 # ---------------------------------------------------
+# Control for "txtMQTTBroker" Textfield
+# ---------------------------------------------------
+my $txtMQTTBroker = $cgi->textfield(
+      -name    => 'txtMQTTBroker',
+      -default => $pcfg->param('MIFLORA.MQTTBROKER'),
+  );
+$template->param( txtMQTTBroker => $txtMQTTBroker );
+
+
+# ---------------------------------------------------
+# Control for "txtMQTTPort" Textfield
+# ---------------------------------------------------
+my $txtMQTTPort = $cgi->textfield(
+      -name    => 'txtMQTTPort',
+      -default => $pcfg->param('MIFLORA.MQTTPORT'),
+  );
+$template->param( txtMQTTPort => $txtMQTTPort );
+
+# ---------------------------------------------------
+# Control for "txtMQTTTopic" Textfield
+# ---------------------------------------------------
+my $txtMQTTTopic = $cgi->textfield(
+      -name    => 'txtMQTTTopic',
+      -default => $pcfg->param('MIFLORA.MQTTTOPIC'),
+  );
+$template->param( txtMQTTTopic => $txtMQTTTopic );
+
+# ---------------------------------------------------
+# Control for "txtMQTTUsername" Textfield
+# ---------------------------------------------------
+my $txtMQTTUsername = $cgi->textfield(
+      -name    => 'txtMQTTUsername',
+      -default => $pcfg->param('MIFLORA.MQTTUSERNAME'),
+  );
+$template->param( txtMQTTUsername => $txtMQTTUsername );
+
+# ---------------------------------------------------
+# Control for "txtMQTTPassword" Textfield
+# ---------------------------------------------------
+my $txtMQTTPassword = $cgi->textfield(
+      -name    => 'txtMQTTPassword',
+      -default => $pcfg->param('MIFLORA.MQTTPASSWORD'),
+  );
+$template->param( txtMQTTPassword => $txtMQTTPassword );
+
+
+# ---------------------------------------------------
 # Control for "chkLocaltime" Flipswitch
 # ---------------------------------------------------
 @values = ('0', '1' );
@@ -227,6 +280,38 @@ $template->param( selPollFrequency => $selPollFrequency );
 
 
 # ---------------------------------------------------
+# Control for "chkUDPEnabled" Flipswitch
+# ---------------------------------------------------
+@values = ('0', '1');
+%labels = (
+      '1' => 'On',
+      '0' => 'Off',
+  );
+my $chkUDPEnabled = $cgi->popup_menu(
+      -name    => 'chkUDPEnabled',
+      -values  => \@values,
+      -labels  => \%labels,
+      -default => $pcfg->param('MIFLORA.UDPENABLED')
+  );
+$template->param( chkUDPEnabled => $chkUDPEnabled );
+
+# ---------------------------------------------------
+# Control for "chkMQTTEnabled" Flipswitch
+# ---------------------------------------------------
+@values = ('0', '1');
+%labels = (
+      '1' => 'On',
+      '0' => 'Off',
+  );
+my $chkMQTTEnabled = $cgi->popup_menu(
+      -name    => 'chkMQTTEnabled',
+      -values  => \@values,
+      -labels  => \%labels,
+      -default => $pcfg->param('MIFLORA.MQTTENABLED')
+  );
+$template->param( chkMQTTEnabled => $chkMQTTEnabled );
+
+# ---------------------------------------------------
 # Control for "txtLastData" Textarea
 # ---------------------------------------------------
 my $txtLastData = $cgi->textarea(
@@ -257,7 +342,13 @@ $template->param( lblMsUDPPort => $L{'MIFLORA.lblMsUDPPort'}  );
 $template->param( lblPollFrequency => $L{'MIFLORA.lblPollFrequency'}  );
 $template->param( lblLastData => $L{'MIFLORA.lblLastData'}  );
 $template->param( lblLocaltime => $L{'MIFLORA.lblLocaltime'}  );
-
+$template->param( lblUDPEnabled => $L{'MIFLORA.lblUDPEnabled'} );
+$template->param( lblMQTTEnabled => $L{'MIFLORA.lblMQTTEnabled'} );
+$template->param( lblMQTTBroker => $L{'MIFLORA.lblMQTTBroker'} );
+$template->param( lblMQTTPort => $L{'MIFLORA.lblMQTTPort'} );
+$template->param( lblMQTTTopic => $L{'MIFLORA.lblMQTTTopic'} );
+$template->param( lblMQTTUsername => $L{'MIFLORA.lblMQTTUsername'} );
+$template->param( lblMQTTPassword => $L{'MIFLORA.lblMQTTPassword'} );
 
 # Nun wird das Template ausgegeben.
 print $template->output();
